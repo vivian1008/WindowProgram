@@ -8,7 +8,9 @@ public static void main(String[] args) {
 }
 class MainFrame extends Frame{
     private int n =0;
-    private Button btnPush = new Button("Push");
+    private Button btnAdd = new Button("Add");
+    private Button btnSub = new Button("Sub");
+    private Button btnExt = new Button("Exit");
     public MainFrame(){
         initComp();
     }
@@ -22,15 +24,32 @@ class MainFrame extends Frame{
         });
         this.setBackground(Color.WHITE);
         this.setLayout(null);
-        btnPush.setLocation(200,150);
-        btnPush.setSize(80,25);
-        btnPush.addActionListener(new ActionListener(){
+        btnAdd.setLocation(160,150);
+        btnAdd.setSize(80,25);
+        btnAdd.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent ae){
                 n+=1;
                 fun1(n);
         }
         });
-        this.add(btnPush);
+        this.add(btnAdd);
+        btnSub.setLocation(60,150);
+        btnSub.setSize(80,25);
+        btnSub.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                n-=1;
+                fun1(n);
+        }
+        });
+        this.add(btnSub);
+        btnExt.setLocation(280,150);
+        btnExt.setSize(80,25);
+        btnExt.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                System.exit(0);
+        }
+        });
+        this.add(btnExt);
     }
     private void fun1(int n){
         this.setTitle(Integer.toString(n));
